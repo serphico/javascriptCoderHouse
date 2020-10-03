@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noel - hecho a mano</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Cotizagurumi</h1>
+        <p>
+          Cotiza el amigurumi que queres, si queres uno personalizado tenes la
+          opción de subir imagen de referencia, tamaño del amigurumi.
+        </p>
+        <form id="form1">
+          <div class="contenedoProductoRealizado">
+            <div>
+              <img
+                class="imgProductoStock"
+                src="/codigo/assets/img/producto1.png"
+                alt="imagen representativa del producto"
+              />
+              <input
+                type="checkbox"
+                name="productoTotoro"
+                class="productoRealizado"
+                value="productoTotoro"
+              />
+            </div>
+
+            <div>
+              <img
+                class="imgProductoStock"
+                src="/codigo/assets/img/producto2.png"
+                alt="imagen representativa del producto"
+              />
+              <input
+                type="checkbox"
+                name="productoPulpi"
+                class="productoRealizado"
+                value="productoPulpi"
+              />
+            </div>
+
+            <div>
+              <img
+                class="imgProductoStock"
+                src="/codigo/assets/img/producto3.png"
+                alt="imagen representativa del producto"
+              />
+              <input
+                type="checkbox"
+                name="productosalchicha"
+                class="productoRealizado"
+                value="productoSalchicha"
+              />
+            </div>
+          </div>
+          <div class="contenedorProductoPersonlizado">
+            <input
+              class="PedidoPersonalizado"
+              type="button"
+              value="Pedido Personalizado"
+            />
+            <div>
+              <label class="textSubirImg" for="imgProductoPersonalizado"
+                >sube una imagen para poder tener un referencia del amigurumi
+                que queres</label
+              >
+              <input
+                class="inputSubirImg"
+                type="file"
+                name="imgProductoPersonalizado"
+                id="imgProductoPersonalizado"
+              />
+              <div>
+                <label for="tamaño">Elige el tamaño del amigurumi</label>
+                <select class="selectTamanio" name="tamaño" id="tamaño">
+                  <option value="15">15 centimetros de altura</option>
+                  <option value="25">25 centimetros de altura</option>
+                  <option value="30">20 centimetros de altura</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <input class="boton" type="submit" value="Siguiente" />
+        </form>
+      </section>
+    </main>
+    <script src="js/source.js"></script>
+  </body>
+</html>

@@ -18,12 +18,14 @@
           <div class="contenedoProductoRealizado">
             <div>
               <img
+                id="1"
                 class="imgProductoStock"
-                src="/codigo/assets/img/producto1.png"
+                src="./assets/img/producto1.png"
                 alt="imagen representativa del producto"
               />
               <input
                 type="checkbox"
+                id="Check1"
                 name="productoTotoro"
                 class="productoRealizado"
                 value="productoTotoro"
@@ -32,12 +34,14 @@
 
             <div>
               <img
+                id="2"
                 class="imgProductoStock"
-                src="/codigo/assets/img/producto2.png"
+                src="./assets/img/producto2.png"
                 alt="imagen representativa del producto"
               />
               <input
                 type="checkbox"
+                id="Check1"
                 name="productoPulpi"
                 class="productoRealizado"
                 value="productoPulpi"
@@ -46,12 +50,14 @@
 
             <div>
               <img
+                id="3"
                 class="imgProductoStock"
-                src="/codigo/assets/img/producto3.png"
+                src="./assets/img/producto3.png"
                 alt="imagen representativa del producto"
               />
               <input
                 type="checkbox"
+                id="Check1"
                 name="productosalchicha"
                 class="productoRealizado"
                 value="productoSalchicha"
@@ -83,12 +89,20 @@
                   <option value="30">20 centimetros de altura</option>
                 </select>
               </div>
+              <label for="detalles">¿algo que quieras detallar?</label>
+              <textarea
+                name="detalles"
+                id="detalles"
+                cols="30"
+                rows="10"
+              ></textarea>
             </div>
           </div>
           <input class="boton" type="submit" value="Siguiente" />
         </form>
       </section>
     </main>
-    <script src="js/source.js"></script>
+    <script src="js/check.js"></script>
+    <!--<script src="js/source.js"></script>-->
   </body>
 </html>

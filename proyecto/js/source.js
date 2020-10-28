@@ -1,74 +1,118 @@
-let productoTororo = {
-  producto: "Tororo",
-  tamanio: 30,
-  produccion: 30, //en horas
-};
+"use strict";
+function ProductoRealizado(nombre, tamanio, produccion, horaTrabajo) {
+  this.nombre = nombre;
+  this.tamanio = tamanio;
+  this.produccion = produccion;
+  this.horaTrabajo = horaTrabajo;
+}
 
-let productoPulpi = {
-  producto: "Pulpi",
-  tamanio: 15,
-  produccion: 20, //en horas
-};
+function ProductoPersonalizado(imagen, tamanio, detalles, produccion, horaTrabajo,) {
+  this.imagen = imagen;
+  this.tamanio = tamanio;
+  this.detalles = detalles;
+  this.produccion = produccion;
+  this.horaTrabajo = horaTrabajo;
 
-let productoSalchicha = {
-  producto: "Perro Salchicha",
-  tamanio: 25,
-  produccion: 25, //en horas
-};
+}
 
-function calcularPrecioRealizados(tamaño, produccion, valorHoraTrabajo) {
-  var valorHoraTrabajo = 100;
+//boton siguiente
 
-  var preguntaRealizado = prompt(
-    "¿Que amigurumi quieres? totoro, pulpi, salchicha"
-  ).toLowerCase();
+let botonSiguiente = $("#botonSiguiente");
 
-  var produccion = [
-    productoTororo.produccion,
-    productoPulpi.produccion,
-    productoSalchicha.produccion,
-  ];
+//parte de producto producto realizado
 
-  var tamanio = [
-    productoTororo.tamanio,
-    productoPulpi.tamanio,
-    productoSalchicha.tamanio,
-  ];
+let checkImgRealizado = $(".imgProductoStock"); 
+let checkRealizado = $(".productoRealizado"); 
+let botonPersonalizado =  $("#botonPersonalizado"); 
+let contenedorPersonalizado = $("#contenedorProductoPersonlizado"); 
 
-  if (preguntaRealizado == "totoro") {
-    var Presupuesto = produccion[0] + tamanio[0] * valorHoraTrabajo;
+let imagenPersonalizado = $("#imgProductoPersonalizado") ;;
+let tamanioPersonalizado = $("#tamanioPersonalizado");
+let detallesPersonalizado = $("#detalles") ;
 
-    alert(`El amigurumi de ${productoTororo.producto} cuesta $${Presupuesto}`);
-  } else if (preguntaRealizado == "pulpi") {
-    var Presupuesto = produccion[1] + tamanio[1] * valorHoraTrabajo;
-    alert(`El amigurumi de ${productoPulpi.producto} cuesta $${Presupuesto}`);
-  } else if (preguntaRealizado == "salchicha") {
-    var Presupuesto = produccion[2] + tamanio[2] * valorHoraTrabajo;
-    alert(
-      `El amigurumi del ${productoSalchicha.producto} cuesta $${Presupuesto}`
-    );
-  } else {
-    alert(`Podes cotizar un diseño personalizado abajo`);
+$( document ).ready(function() {
+  $(botonSiguiente).prop( "disabled", true );
+
+});
+
+for (let i = 0; i < checkImgRealizado.length; i++) {
+  
+  $(checkImgRealizado[i]).click(mostrarValor );
+
+  function mostrarValor() {
+    $(checkRealizado[i]).prop('checked', true);
+    sessionStorage.clear();
+    $.ajax({
+      url:"../data/tamanio.json",
+      type: "GET",
+      dataType: "json"
+    }).done(function (tamanio){
+      var select = document.createElement("select");
+      //var option1 = document.createTextNode(tamanio.tamanio_select)
+      $("tamanio"+i).append("")
+    })
+    /*$(contenedorPersonalizado).css("display","none");*/
+    var inputTamanio = $("#tamanioProd"+ i);
+    $(inputTamanio).change(valorTamanio);
+
+    function valorTamanio() {
+      var productoPredefinido = new ProductoRealizado(
+        $(checkRealizado[i]).val(),
+        parseInt($(inputTamanio).val()),
+        parseInt($(inputTamanio).val() * 2),
+        parseInt($(inputTamanio).val() * 10)
+      );
+  
+      sessionStorage.setItem("productoPredefinido", JSON.stringify(productoPredefinido));
+      var item = JSON.parse(sessionStorage.getItem("productoPredefinido"));
+  
+      
+    }
   }
-}
 
-calcularPrecioRealizados();
 
-function Producto() {
-  this.idProducto = idProducto;
-  this.alturaProducto = alturaProducto;
-  this.anchoProducto = anchoProducto;
-  this.imgProducto = imgProducto;
 
-  var tiempoProduccion = tiempoProduccion;
-  this.calcularTiempoProduccion = function (tiempoProduccion) {
-    tiempoProduccion = alturaProducto * anchoProducto;
-    return tiempoProduccion;
-  };
+  $(botonPersonalizado).click(habilitarPersonalizado);
 
-  var valorProducto = valorProducto;
-  this.calcularValorProducto = function (valorProducto) {
-    valorProducto = tiempoProducción + valorHoraTrabajo;
-    return tiempoProduccion;
-  };
-}
+  function habilitarPersonalizado() {
+    $(contenedorPersonalizado).css('display','flex');
+    $(checkRealizado[i]).prop('checked', false);
+    sessionStorage.clear();
+
+    $(botonSiguiente).prop( "disabled", false );
+
+    $(imagenPersonalizado).change(handleFiles);
+
+    function handleFiles(){
+
+      const file = $(imagenPersonalizado).prop('files')[i];
+      console.log(file);
+      const preview =$('#preview');
+      const img = document.createElement("img");
+    img.classList.add("obj");
+    img.file = file;
+    $(preview).append(img);
+
+    const reader = new FileReader();
+    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+    reader.readAsDataURL(file);
+    }
+
+    $(botonSiguiente).click(subaImagen);
+
+    function subaImagen() {
+
+      var productoPersonalizado = new ProductoPersonalizado(
+        $(imagenPersonalizado).prop('files')[i],
+        $(tamanioPersonalizado).val(),
+        $(detallesPersonalizado).val(),
+        parseInt($(tamanioPersonalizado).val() * 2),
+        parseInt($(tamanioPersonalizado).val() * 10)
+      );
+
+      sessionStorage.setItem("productoPersonalizado", JSON.stringify(productoPersonalizado));
+
+  }
+  }
+
+  } 

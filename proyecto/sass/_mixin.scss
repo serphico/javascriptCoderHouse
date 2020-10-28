@@ -1,0 +1,19 @@
+@mixin select {
+  font-weight: 700;
+  margin: 5% auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}
+
+@mixin botones {
+  font-weight: 700;
+  margin: 0 auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}

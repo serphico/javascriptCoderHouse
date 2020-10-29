@@ -48,8 +48,56 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
       dataType: "json"
     }).done(function (tamanio){
       var select = document.createElement("select");
-      //var option1 = document.createTextNode(tamanio.tamanio_select)
-      $("tamanio"+i).append("")
+      select.id = "tamanioProd"+i;
+
+      var option1 = document.createElement("option");
+      var option2 = document.createElement("option");
+      var option3 = document.createElement("option");
+      var option4 = document.createElement("option");
+
+      var textoOption1 = document.createTextNode(tamanio.tamanio_select);
+      var textoOption2 = document.createTextNode(tamanio.tamanio_chico);
+      var textoOption3 = document.createTextNode(tamanio.tamanio_mediano);
+      var textoOption4 = document.createTextNode(tamanio.tamanio_grande);
+      
+      option1.appendChild(textoOption1);
+      option2.appendChild(textoOption2);
+      option3.appendChild(textoOption3);
+      option4.appendChild(textoOption4);
+
+      if(i == 0){
+        $("#tamanio"+i).append(select);
+        $("#tamanioProd"+i).append(option1, option2, option3, option4);
+        
+        $("#tamanio1 select").remove();
+        $("#tamanio2 select").remove();
+
+      }if(i == 1){
+        $("#tamanio0 select").remove();
+
+        $("#tamanio"+i).append(select);
+        $("#tamanioProd"+i).append(option1, option2, option3, option4);
+        
+
+        $("#tamanio2 select").remove();
+
+      }
+
+      if(i == 2){
+        $("#tamanio0 select").remove();
+        $("#tamanio1 select").remove();
+
+        $("#tamanio"+i).append(select);
+        $("#tamanioProd"+i).append(option1, option2, option3, option4);
+        
+
+
+
+      }
+ 
+     // $("#tamanio"+i).append(select);
+     // $("#tamanioProd"+i).append(option1, option2, option3, option4);
+      option1.disabled = true
     })
     /*$(contenedorPersonalizado).css("display","none");*/
     var inputTamanio = $("#tamanioProd"+ i);

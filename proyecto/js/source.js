@@ -48,37 +48,45 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
       type: "GET",
       dataType: "json"
     }).done(function (tamanio){
-      console.log(tamanio);
-      var select = document.createElement("select");
-      select.id = "tamanioProd";
+      var radio1 = document.createElement("input");
+      var radio2 = document.createElement("input");
+      var radio3 = document.createElement("input");
+      
+      radio1.type = "radio";
+      radio2.type = "radio";
+      radio3.type = "radio";
 
-
-      var option1 = document.createElement("option");
+      radio1.className = "tamanioChico";
+      radio2.className = "tamanioMediano";
+      radio3.className = "tamanioGrande";
+      /*var option1 = document.createElement("option");
       var option2 = document.createElement("option");
       var option3 = document.createElement("option");
-      var option4 = document.createElement("option");
+      var option4 = document.createElement("option");*/
       
-      $(option2).attr("value",15);
+      
+
+      /*$(option2).attr("value",15);
       $(option3).attr("value",25);
-      $(option4).attr("value",30);
+      $(option4).attr("value",30);*/
 
-      var textoOption1 = document.createTextNode(tamanio.tamanio_select);
-      var textoOption2 = document.createTextNode(tamanio.tamanio_chico);
-      var textoOption3 = document.createTextNode(tamanio.tamanio_mediano);
-      var textoOption4 = document.createTextNode(tamanio.tamanio_grande);
+      //var textoOption1 = document.createTextNode(tamanio.tamanio_select);
+      var textoOption1 = document.createTextNode(tamanio.tamanio_chico);
+      var textoOption2 = document.createTextNode(tamanio.tamanio_mediano);
+      var textoOption3 = document.createTextNode(tamanio.tamanio_grande);
       
-      option1.appendChild(textoOption1);
-      option2.appendChild(textoOption2);
-      option3.appendChild(textoOption3);
-      option4.appendChild(textoOption4);
+      radio1.appendChild(textoOption1);
+      radio2.appendChild(textoOption2);
+      radio3.appendChild(textoOption3);
+      //option4.appendChild(textoOption4);
 
-      $("#tamanioRealizado").append(select);
-      $("#tamanioProd").append(option1, option2, option3, option4);
+      $("#tamanioRealizado").append(radio1, radio2, radio3);
+      $(".tamanioChico").append(textoOption1 +"cm.");
 
 
      // $("#tamanio"+i).append(select);
      // $("#tamanioProd"+i).append(option1, option2, option3, option4);
-      option1.disabled = true
+      //option1.disabled = true
     }).fail( function(xhr, status, error) {    //xhr (request completa)        
       console.log(xhr);
       console.log(status);
@@ -86,22 +94,30 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
   })
     /*$(contenedorPersonalizado).css("display","none");*/
 
-      $("#tamanioProd option").change(valorTamanio);
-  
+    $( "#tamanioProd" ).ready(function() {
+       $("#tamanioProd").change(valorTamanio());
+
       function valorTamanio() {
-        console.log("hola");
+        console.log($("select#tamanioProd"));
         var productoPredefinido = new ProductoRealizado(
           $(checkRealizado[i]).val(),
-          parseInt($(inputTamanio).val()),
-          parseInt($(inputTamanio).val() * 2),
-          parseInt($(inputTamanio).val() * 10)
+          parseInt($("#tamanioProd").val()),
+          parseInt($("#tamanioProd").val() * 2),
+          parseInt($("#tamanioProd").val() * 10)
         );
     
         sessionStorage.setItem("productoPredefinido", JSON.stringify(productoPredefinido));
         var item = JSON.parse(sessionStorage.getItem("productoPredefinido"));
     
-        $(botonSiguiente).prop( "disabled", false );
+        $("#botonSiguiente").prop('disabled', false).css({
+          "background-color": "cyan",
+          "cursor": "pointer"
+       });
       }
+    
+    });
+
+
 
   }
 

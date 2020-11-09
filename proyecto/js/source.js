@@ -37,23 +37,30 @@ $( document ).ready(function() {
 
 for (let i = 0; i < checkImgRealizado.length; i++) {
   
-  $(checkImgRealizado[i]).click(mostrarValor );
+  $(checkImgRealizado[i]).click(mostrarValor);
 
   function mostrarValor() {
     $(checkRealizado[i]).prop('checked', true);
     sessionStorage.clear();
+    //$(contenedorPersonalizado).fadeOut(300);
     $.ajax({
       url:"../data/tamanio.json",
       type: "GET",
       dataType: "json"
     }).done(function (tamanio){
+      console.log(tamanio);
       var select = document.createElement("select");
-      select.id = "tamanioProd"+i;
+      select.id = "tamanioProd";
+
 
       var option1 = document.createElement("option");
       var option2 = document.createElement("option");
       var option3 = document.createElement("option");
       var option4 = document.createElement("option");
+      
+      $(option2).attr("value",15);
+      $(option3).attr("value",25);
+      $(option4).attr("value",30);
 
       var textoOption1 = document.createTextNode(tamanio.tamanio_select);
       var textoOption2 = document.createTextNode(tamanio.tamanio_chico);
@@ -65,57 +72,37 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
       option3.appendChild(textoOption3);
       option4.appendChild(textoOption4);
 
-      if(i == 0){
-        $("#tamanio"+i).append(select);
-        $("#tamanioProd"+i).append(option1, option2, option3, option4);
-        
-        $("#tamanio1 select").remove();
-        $("#tamanio2 select").remove();
-
-      }if(i == 1){
-        $("#tamanio0 select").remove();
-
-        $("#tamanio"+i).append(select);
-        $("#tamanioProd"+i).append(option1, option2, option3, option4);
-        
-
-        $("#tamanio2 select").remove();
-
-      }
-
-      if(i == 2){
-        $("#tamanio0 select").remove();
-        $("#tamanio1 select").remove();
-
-        $("#tamanio"+i).append(select);
-        $("#tamanioProd"+i).append(option1, option2, option3, option4);
-        
+      $("#tamanioRealizado").append(select);
+      $("#tamanioProd").append(option1, option2, option3, option4);
 
 
-
-      }
- 
      // $("#tamanio"+i).append(select);
      // $("#tamanioProd"+i).append(option1, option2, option3, option4);
       option1.disabled = true
-    })
+    }).fail( function(xhr, status, error) {    //xhr (request completa)        
+      console.log(xhr);
+      console.log(status);
+      console.log(error);
+  })
     /*$(contenedorPersonalizado).css("display","none");*/
-    var inputTamanio = $("#tamanioProd"+ i);
-    $(inputTamanio).change(valorTamanio);
 
-    function valorTamanio() {
-      var productoPredefinido = new ProductoRealizado(
-        $(checkRealizado[i]).val(),
-        parseInt($(inputTamanio).val()),
-        parseInt($(inputTamanio).val() * 2),
-        parseInt($(inputTamanio).val() * 10)
-      );
+      $("#tamanioProd option").change(valorTamanio);
   
-      sessionStorage.setItem("productoPredefinido", JSON.stringify(productoPredefinido));
-      var item = JSON.parse(sessionStorage.getItem("productoPredefinido"));
-  
-      
-    }
+      function valorTamanio() {
+        console.log("hola");
+        var productoPredefinido = new ProductoRealizado(
+          $(checkRealizado[i]).val(),
+          parseInt($(inputTamanio).val()),
+          parseInt($(inputTamanio).val() * 2),
+          parseInt($(inputTamanio).val() * 10)
+        );
+    
+        sessionStorage.setItem("productoPredefinido", JSON.stringify(productoPredefinido));
+        var item = JSON.parse(sessionStorage.getItem("productoPredefinido"));
+    
+        $(botonSiguiente).prop( "disabled", false );
+      }
+
   }
 
 
@@ -123,7 +110,8 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
   $(botonPersonalizado).click(habilitarPersonalizado);
 
   function habilitarPersonalizado() {
-    $(contenedorPersonalizado).css('display','flex');
+    $(contenedorPersonalizado).fadeIn(1000);
+    $("#tamanioProd"+i).remove().fadeOut(500);
     $(checkRealizado[i]).prop('checked', false);
     sessionStorage.clear();
 

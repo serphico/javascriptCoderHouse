@@ -51,7 +51,7 @@ main section form .contenedoProductoRealizado {
 
 main section form .contenedoProductoRealizado div {
   width: 30%;
-  height: 19vh;
+  height: 16vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,6 +99,21 @@ main section form .contenedoProductoRealizado div .productoRealizado {
 
 main section form .contenedoProductoRealizado div .productoRealizado:checked ~ img {
   border: solid 4px yellow;
+}
+
+main section form #tamanioRealizado {
+  width: 100%;
+  display: none;
+}
+
+main section form #tamanioRealizado p {
+  font-size: 1.2rem;
+}
+
+main section form #tamanioRealizado #SelectTamanio {
+  width: 30%;
+  border-radius: 50px;
+  font-size: 1.2rem;
 }
 
 main section form .seccionProductoPersonlizado {

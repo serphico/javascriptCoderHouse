@@ -39,7 +39,36 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
   
   $(checkImgRealizado[i]).click(mostrarValor);
 
-  function mostrarValor() {
+  function mostrarValor(){
+    $(checkRealizado[i]).prop('checked', true);
+    sessionStorage.clear();
+    $('#tamanioRealizado').fadeIn(500);
+
+    $( "#tamanioRealizado" ).ready(function() {
+      $("#SelectTamanio").change(valorTamanio);
+
+     function valorTamanio() {
+      
+       var productoPredefinido = new ProductoRealizado(
+         $(checkRealizado[i]).val(),
+         parseInt($("#SelectTamanio").val()),
+         parseInt($("#SelectTamanio").val() * 2),
+         parseInt($("#SelectTamanio").val() * 10)
+       );
+   
+       sessionStorage.setItem("productoPredefinido", JSON.stringify(productoPredefinido));
+       var item = JSON.parse(sessionStorage.getItem("productoPredefinido"));
+   
+       $("#botonSiguiente").prop('disabled', false).css({
+         "background-color": "cyan",
+         "cursor": "pointer"
+      });
+     }
+   
+   });
+  };
+
+  function nomostrarValor() {
     $(checkRealizado[i]).prop('checked', true);
     sessionStorage.clear();
     //$(contenedorPersonalizado).fadeOut(300);
@@ -127,7 +156,7 @@ for (let i = 0; i < checkImgRealizado.length; i++) {
 
   function habilitarPersonalizado() {
     $(contenedorPersonalizado).fadeIn(1000);
-    $("#tamanioProd"+i).remove().fadeOut(500);
+    $('#tamanioRealizado').fadeOut(500);
     $(checkRealizado[i]).prop('checked', false);
     sessionStorage.clear();
 

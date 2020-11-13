@@ -1,4 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+#pedidoConcretado {
+  display: flex;
+  flex-direction: row;
+  align-self: start;
+}
+
+#pedidoConcretado img {
+  width: 30%;
+  border-radius: 50rem;
+}
+
+#pedidoConcretado p {
+  width: 30%;
+}
+
+#botonSiguienteSegunda {
+  font-weight: 700;
+  margin: 0 auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}
+
+#botonAtrasSegunda {
+  font-weight: 700;
+  margin: 0 auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -51,38 +86,10 @@ main section form .contenedoProductoRealizado {
 
 main section form .contenedoProductoRealizado div {
   width: 30%;
-  height: 16vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  /*#tamanio0,
-          #tamanio1,
-          #tamanio2 {
-            display: none;
-            width: 100%;
-            p {
-              width: 100%;
-              font-size: 0.8rem;
-              padding: 0;
-            }
-            #tamanioProd0,
-            #tamanioProd1,
-            #tamanioProd2 {
-              width: 100%;
-              @include select;
-            }
-          }
-
-          .productoRealizado:checked ~ #tamanio0 {
-            display: block;
-          }
-          .productoRealizado:checked ~ #tamanio1 {
-            display: block;
-          }
-          .productoRealizado:checked ~ #tamanio2 {
-            display: block;
-          }*/
 }
 
 main section form .contenedoProductoRealizado div img {
@@ -111,7 +118,7 @@ main section form #tamanioRealizado p {
 }
 
 main section form #tamanioRealizado #SelectTamanio {
-  width: 30%;
+  width: auto;
   border-radius: 50px;
   font-size: 1.2rem;
 }
@@ -194,6 +201,10 @@ main section form .seccionProductoPersonlizado div {
 main section form .seccionProductoPersonlizado div label,
 main section form .seccionProductoPersonlizado div input {
   color: white;
+}
+
+main section form .seccionProductoPersonlizado #preview img {
+  width: 100%;
 }
 
 main section form .boton {

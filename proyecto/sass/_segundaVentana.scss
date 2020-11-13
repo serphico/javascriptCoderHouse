@@ -1,0 +1,23 @@
+@import "_mixin";
+
+#pedidoConcretado {
+  display: flex;
+  flex-direction: row;
+  align-self: start;
+  img {
+    width: 30%;
+    border-radius: 50rem;
+  }
+
+  p {
+    width: 30%;
+  }
+}
+
+#botonSiguienteSegunda {
+  @include botones;
+}
+
+#botonAtrasSegunda {
+  @include botones;
+}

@@ -1,20 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-#pedidoConcretado {
+.segundaVentana {
+  width: 100vw;
   display: flex;
-  flex-direction: row;
-  align-self: start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: firebrick;
+  border-radius: 15px;
+  padding: 5% 0% 5% 0%;
 }
 
-#pedidoConcretado img {
+.segundaVentana h1 {
+  color: white;
+}
+
+.segundaVentana p {
+  color: white;
+}
+
+.segundaVentana #pedidoConcretado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.segundaVentana #pedidoConcretado img {
   width: 30%;
   border-radius: 50rem;
 }
 
-#pedidoConcretado p {
-  width: 30%;
+.segundaVentana #pedidoConcretado p {
+  width: 80%;
+  color: white;
 }
 
-#botonSiguienteSegunda {
+.segundaVentana #botonSiguienteSegunda {
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -24,7 +47,70 @@
   cursor: pointer;
 }
 
-#botonAtrasSegunda {
+.segundaVentana #botonAtrasSegunda {
+  font-weight: 700;
+  margin: 0 auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}
+
+.terceraVentana {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: firebrick;
+  border-radius: 15px;
+  padding: 5% 0% 5% 0%;
+  color: white;
+}
+
+.terceraVentana form #DatosComprador .contenedorInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.terceraVentana form #DatosComprador .contenedorInputs label {
+  width: 80%;
+  padding: 2% 0% 2% 0%;
+}
+
+.terceraVentana form #DatosComprador .contenedorInputs input {
+  width: 80%;
+  background: none;
+  border: none;
+  border-bottom: solid 2px white;
+  color: white;
+}
+
+.terceraVentana form #DatosComprador .contenedorInputs #Provincias {
+  width: 80%;
+}
+
+.terceraVentana form #DatosComprador .contedorMunicipios {
+  visibility: hidden;
+}
+
+.terceraVentana #botonAtrasSegunda {
+  font-weight: 700;
+  margin: 0 auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}
+
+.terceraVentana #botonSiguienteSegunda {
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -43,25 +129,25 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
-main section {
-  position: relative;
-  top: 10rem;
-  width: 60%;
-  top: 5rem;
+main .primeraVentana {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   text-align: center;
   margin: 0 auto;
   background-color: firebrick;
   border-radius: 15px;
-  padding: 2%;
+  padding: 5% 0% 5% 0%;
 }
 
-main section h1 {
+main .primeraVentana h1 {
   color: white;
   font-weight: 900;
   font-size: 2rem;
 }
 
-main section p {
+main .primeraVentana p {
   color: white;
   width: 70%;
   margin: 0 auto;
@@ -69,22 +155,21 @@ main section p {
   font-size: 1rem;
 }
 
-main section form {
-  width: 80%;
+main .primeraVentana form {
   margin: 0 auto;
 }
 
-main section form .contenedoProductoRealizado {
+main .primeraVentana form .contenedoProductoRealizado {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   margin: 5% 0 5% 0%;
 }
 
-main section form .contenedoProductoRealizado div {
+main .primeraVentana form .contenedoProductoRealizado div {
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -92,38 +177,39 @@ main section form .contenedoProductoRealizado div {
   position: relative;
 }
 
-main section form .contenedoProductoRealizado div img {
-  width: 70%;
+main .primeraVentana form .contenedoProductoRealizado div img {
+  width: 100%;
+  margin: 4%;
   border-radius: 50%;
   border: solid 4px gray;
   cursor: pointer;
 }
 
-main section form .contenedoProductoRealizado div .productoRealizado {
+main .primeraVentana form .contenedoProductoRealizado div .productoRealizado {
   position: absolute;
   visibility: hidden;
 }
 
-main section form .contenedoProductoRealizado div .productoRealizado:checked ~ img {
+main .primeraVentana form .contenedoProductoRealizado div .productoRealizado:checked ~ img {
   border: solid 4px yellow;
 }
 
-main section form #tamanioRealizado {
+main .primeraVentana form #tamanioRealizado {
   width: 100%;
   display: none;
 }
 
-main section form #tamanioRealizado p {
+main .primeraVentana form #tamanioRealizado p {
   font-size: 1.2rem;
 }
 
-main section form #tamanioRealizado #SelectTamanio {
+main .primeraVentana form #tamanioRealizado #SelectTamanio {
   width: auto;
   border-radius: 50px;
   font-size: 1.2rem;
 }
 
-main section form .seccionProductoPersonlizado {
+main .primeraVentana form .seccionProductoPersonlizado {
   width: 100%;
   margin: 0 auto;
   margin-top: 10%;
@@ -133,26 +219,26 @@ main section form .seccionProductoPersonlizado {
   justify-content: center;
 }
 
-main section form .seccionProductoPersonlizado #contenedorProductoPersonlizado {
+main .primeraVentana form .seccionProductoPersonlizado #contenedorProductoPersonlizado {
   display: none;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
 }
 
-main section form .seccionProductoPersonlizado #contenedorProductoPersonlizado .textSubirImg {
+main .primeraVentana form .seccionProductoPersonlizado #contenedorProductoPersonlizado .textSubirImg {
   width: 100%;
   font-size: 0.9rem;
   font-weight: 300;
   margin: 3% 0% 3% 0%;
 }
 
-main section form .seccionProductoPersonlizado #contenedorProductoPersonlizado .inputSubirImg {
+main .primeraVentana form .seccionProductoPersonlizado #contenedorProductoPersonlizado .inputSubirImg {
   width: 100%;
   margin-top: 2%;
 }
 
-main section form .seccionProductoPersonlizado #contenedorProductoPersonlizado .inputSubirImg #file-upload-button {
+main .primeraVentana form .seccionProductoPersonlizado #contenedorProductoPersonlizado .inputSubirImg #file-upload-button {
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -162,7 +248,7 @@ main section form .seccionProductoPersonlizado #contenedorProductoPersonlizado .
   cursor: pointer;
 }
 
-main section form .seccionProductoPersonlizado .tamanioPersonalizado {
+main .primeraVentana form .seccionProductoPersonlizado .tamanioPersonalizado {
   width: 100%;
   font-weight: 700;
   margin: 5% auto;
@@ -173,7 +259,7 @@ main section form .seccionProductoPersonlizado .tamanioPersonalizado {
   cursor: pointer;
 }
 
-main section form .seccionProductoPersonlizado #botonPersonalizado {
+main .primeraVentana form .seccionProductoPersonlizado #botonPersonalizado {
   width: 50%;
   font-weight: 700;
   margin: 0 auto;
@@ -184,7 +270,7 @@ main section form .seccionProductoPersonlizado #botonPersonalizado {
   cursor: pointer;
 }
 
-main section form .seccionProductoPersonlizado #botonPersonalizado:hover {
+main .primeraVentana form .seccionProductoPersonlizado #botonPersonalizado:hover {
   margin: 0 auto;
   background-color: dodgerblue;
   color: white;
@@ -194,20 +280,20 @@ main section form .seccionProductoPersonlizado #botonPersonalizado:hover {
   cursor: pointer;
 }
 
-main section form .seccionProductoPersonlizado div {
+main .primeraVentana form .seccionProductoPersonlizado div {
   margin-top: 2%;
 }
 
-main section form .seccionProductoPersonlizado div label,
-main section form .seccionProductoPersonlizado div input {
+main .primeraVentana form .seccionProductoPersonlizado div label,
+main .primeraVentana form .seccionProductoPersonlizado div input {
   color: white;
 }
 
-main section form .seccionProductoPersonlizado #preview img {
+main .primeraVentana form .seccionProductoPersonlizado #preview img {
   width: 100%;
 }
 
-main section form .boton {
+main .primeraVentana form .boton {
   width: 40%;
   align-self: flex-start;
   background-color: gray;

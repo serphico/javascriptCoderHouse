@@ -1,0 +1,56 @@
+@import "_mixin";
+
+.terceraVentana {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: firebrick;
+  border-radius: 15px;
+  padding: 5% 0% 5% 0%;
+  color: white;
+
+  form {
+    #DatosComprador {
+      .contenedorInputs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        label {
+          width: 80%;
+          padding: 2% 0% 2% 0%;
+        }
+
+        input {
+          width: 80%;
+          background: none;
+          border: none;
+          border-bottom: solid 2px white;
+          color: white;
+        }
+
+        #Provincias {
+          width: 80%;
+        }
+      }
+
+      .contedorMunicipios {
+        visibility: hidden;
+      }
+    }
+  }
+
+  #botonAtrasSegunda {
+    @include botones;
+  }
+
+  #botonSiguienteSegunda {
+    @include botones;
+  }
+}

@@ -1,12 +1,14 @@
 "use strict";
-function ProductoRealizado(nombre, tamanio, produccion, horaTrabajo) {
+function ProductoRealizado(id, nombre, tamanio, produccion, horaTrabajo) {
+  this.id = id;
   this.nombre = nombre;
   this.tamanio = tamanio;
   this.produccion = produccion;
   this.horaTrabajo = horaTrabajo;
 }
 
-function ProductoPersonalizado(imagen, tamanio, detalles, produccion, horaTrabajo,) {
+function ProductoPersonalizado(id, imagen, tamanio, detalles, produccion, horaTrabajo,) {
+  this.id = id;
   this.imagen = imagen;
   this.tamanio = tamanio;
   this.detalles = detalles;
@@ -22,6 +24,7 @@ let botonSiguiente = $("#botonSiguiente");
 //parte de producto producto realizado
 
 let checkImgRealizado = $(".imgProductoStock"); 
+
 let checkRealizado = $(".productoRealizado"); 
 let botonPersonalizado =  $("#botonPersonalizado"); 
 let contenedorPersonalizado = $("#contenedorProductoPersonlizado"); 
@@ -36,10 +39,10 @@ $( document ).ready(function() {
 });
 
 for (let i = 0; i < checkImgRealizado.length; i++) {
-  
   $(checkImgRealizado[i]).click(mostrarValor);
 
   function mostrarValor(){
+
     $(checkRealizado[i]).prop('checked', true);
     sessionStorage.clear();
     $(contenedorPersonalizado).fadeOut(500);
@@ -57,6 +60,7 @@ console.log($("#SelectTamanio").val());
        });
       }else{
         var productoPredefinido = new ProductoRealizado(
+          checkImgRealizado[i].id,
           $(checkRealizado[i]).val(),
           parseInt($("#SelectTamanio").val()),
           parseInt($("#SelectTamanio").val() * 2),
@@ -78,7 +82,7 @@ console.log($("#SelectTamanio").val());
    });
   };
 
-  $(botonPersonalizado).click(habilitarPersonalizado);
+  /*$(botonPersonalizado).click(habilitarPersonalizado);
 
   function habilitarPersonalizado() {
     $(contenedorPersonalizado).fadeIn(500);
@@ -145,20 +149,22 @@ console.log($("#SelectTamanio").val());
       sessionStorage.setItem("productoPersonalizado", JSON.stringify(productoPersonalizado));
 
   }
-  }
+  }*/
 
   } 
 
-  $("#botonSiguiente").click(imprimePrueba);
+  $("#botonSiguiente").click(imprimeProducto);
 
-  function imprimePrueba(){
+  function imprimeProducto(){
     var itemPredefinido = JSON.parse(sessionStorage.getItem("productoPredefinido"));
     var nombrePrueba = itemPredefinido.nombre;
     var tamanioPredefinido = itemPredefinido.tamanio;
     var horaTrabajoPredefinido = itemPredefinido.horaTrabajo;
     var produccionPredefinido = itemPredefinido.produccion;
 
-    var imprimirImg = $('<img src="./assets/img/producto1.png"/>');
+    
+    var imprimirImg = $(`<img src="./assets/img/producto${itemPredefinido.id}.png"/>`);
+    
     var imprimirNombre = $('<p></p>').text(`Nombre: ${nombrePrueba}`);
     var imprimirTamanio = $('<p></p>').text(`Tamaño: ${tamanioPredefinido} cm.`);
     var imprimirPrecio = $('<p></p>').text(`Precio: $${precioFinalPredefinido(tamanioPredefinido,horaTrabajoPredefinido,produccionPredefinido)}`);
@@ -174,3 +180,16 @@ console.log($("#SelectTamanio").val());
   }
 
   
+  $("#botonAtrasSegunda").click(imprimePrueba);
+
+  function imprimePrueba(){
+    $('#pedidoConcretado img').remove();
+    $('#pedidoConcretado p').remove();
+    $("#tamanioRealizado").toggle(500);
+    $("#SelectTamanio").prop('selectedIndex',0)
+  $(botonSiguiente).prop( "disabled", true ).css({
+    "background-color": "grey",
+ });
+    $('.productoRealizado').prop( "checked", false );;
+
+  }

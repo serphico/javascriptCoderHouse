@@ -1,23 +1,45 @@
 @import "_mixin";
 
-#pedidoConcretado {
+.segundaVentana {
+  width: 100vw;
   display: flex;
-  flex-direction: row;
-  align-self: start;
-  img {
-    width: 30%;
-    border-radius: 50rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: firebrick;
+  border-radius: 15px;
+  padding: 5% 0% 5% 0%;
+
+  h1 {
+    color: white;
   }
 
   p {
-    width: 30%;
+    color: white;
   }
-}
+  #pedidoConcretado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 30%;
+      border-radius: 50rem;
+    }
 
-#botonSiguienteSegunda {
-  @include botones;
-}
+    p {
+      width: 80%;
+      color: white;
+    }
+  }
 
-#botonAtrasSegunda {
-  @include botones;
+  #botonSiguienteSegunda {
+    @include botones;
+  }
+
+  #botonAtrasSegunda {
+    @include botones;
+  }
 }

@@ -2,7 +2,7 @@
 
 .terceraVentana {
   width: 100vw;
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -46,11 +46,19 @@
     }
   }
 
-  #botonAtrasSegunda {
+  #botonAtrasTercera {
+    width: 30%;
+    margin: 8% 0% 0% 0% !important;
+    font-size: 1.2rem;
     @include botones;
   }
 
-  #botonSiguienteSegunda {
+  #botonFinalizar {
+    width: 30%;
+    margin: 8% 0% 0% 0% !important;
+    background-color: grey !important;
+    color: white !important;
+    font-size: 1.2rem;
     @include botones;
   }
 }

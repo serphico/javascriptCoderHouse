@@ -2,7 +2,8 @@
 
 .segundaVentana {
   width: 100vw;
-  display: flex;
+  height: 100vh;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,10 +15,17 @@
 
   h1 {
     color: white;
+    font-weight: 900;
+    font-size: 2.5rem;
+    padding: 0% 0% 2% 0%;
   }
 
   p {
     color: white;
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 300;
+    font-size: 1.5rem;
   }
   #pedidoConcretado {
     display: flex;
@@ -25,21 +33,29 @@
     justify-content: center;
     align-items: center;
     img {
-      width: 30%;
+      width: 40%;
+      margin: 5% 0% 5% 0%;
       border-radius: 50rem;
     }
 
     p {
       width: 80%;
       color: white;
+      font-size: 1.2rem;
     }
   }
 
   #botonSiguienteSegunda {
+    width: 30%;
+    margin: 8% 0% 0% 0% !important;
+    font-size: 1.2rem;
     @include botones;
   }
 
   #botonAtrasSegunda {
+    width: 30%;
+    margin: 8% 0% 0% 0% !important;
+    font-size: 1.2rem;
     @include botones;
   }
 }

@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 .segundaVentana {
   width: 100vw;
-  display: flex;
+  height: 100vh;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,10 +15,17 @@
 
 .segundaVentana h1 {
   color: white;
+  font-weight: 900;
+  font-size: 2.5rem;
+  padding: 0% 0% 2% 0%;
 }
 
 .segundaVentana p {
   color: white;
+  width: 80%;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: 1.5rem;
 }
 
 .segundaVentana #pedidoConcretado {
@@ -28,16 +36,21 @@
 }
 
 .segundaVentana #pedidoConcretado img {
-  width: 30%;
+  width: 40%;
+  margin: 5% 0% 5% 0%;
   border-radius: 50rem;
 }
 
 .segundaVentana #pedidoConcretado p {
   width: 80%;
   color: white;
+  font-size: 1.2rem;
 }
 
 .segundaVentana #botonSiguienteSegunda {
+  width: 30%;
+  margin: 8% 0% 0% 0% !important;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -48,6 +61,9 @@
 }
 
 .segundaVentana #botonAtrasSegunda {
+  width: 30%;
+  margin: 8% 0% 0% 0% !important;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -59,7 +75,7 @@
 
 .terceraVentana {
   width: 100vw;
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -100,7 +116,10 @@
   visibility: hidden;
 }
 
-.terceraVentana #botonAtrasSegunda {
+.terceraVentana #botonAtrasTercera {
+  width: 30%;
+  margin: 8% 0% 0% 0% !important;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -110,7 +129,12 @@
   cursor: pointer;
 }
 
-.terceraVentana #botonSiguienteSegunda {
+.terceraVentana #botonFinalizar {
+  width: 30%;
+  margin: 8% 0% 0% 0% !important;
+  background-color: grey !important;
+  color: white !important;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -144,15 +168,16 @@ main .primeraVentana {
 main .primeraVentana h1 {
   color: white;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  padding: 0% 0% 2% 0%;
 }
 
 main .primeraVentana p {
   color: white;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 main .primeraVentana form {
@@ -170,7 +195,7 @@ main .primeraVentana form .contenedoProductoRealizado {
 }
 
 main .primeraVentana form .contenedoProductoRealizado div {
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,7 +206,7 @@ main .primeraVentana form .contenedoProductoRealizado div img {
   width: 100%;
   margin: 4%;
   border-radius: 50%;
-  border: solid 4px gray;
+  border: solid 10px gray;
   cursor: pointer;
 }
 
@@ -191,7 +216,7 @@ main .primeraVentana form .contenedoProductoRealizado div .productoRealizado {
 }
 
 main .primeraVentana form .contenedoProductoRealizado div .productoRealizado:checked ~ img {
-  border: solid 4px yellow;
+  border: solid 10px yellow;
 }
 
 main .primeraVentana form #tamanioRealizado {
@@ -204,9 +229,13 @@ main .primeraVentana form #tamanioRealizado p {
 }
 
 main .primeraVentana form #tamanioRealizado #SelectTamanio {
-  width: auto;
+  width: 80%;
   border-radius: 50px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+
+main .primeraVentana form #tamanioRealizado #SelectTamanio option {
+  font-size: 1rem;
 }
 
 main .primeraVentana form .seccionProductoPersonlizado {
@@ -294,13 +323,14 @@ main .primeraVentana form .seccionProductoPersonlizado #preview img {
 }
 
 main .primeraVentana form .boton {
-  width: 40%;
+  width: 50%;
   align-self: flex-start;
   background-color: gray;
   color: white;
   border: none;
   border-radius: 20px;
   margin: 3% 0% 0% 0%;
-  padding: 2% 8% 2% 8%;
+  padding: 3% 8% 3% 8%;
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=style.css.map */

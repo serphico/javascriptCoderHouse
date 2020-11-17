@@ -156,6 +156,12 @@ console.log($("#SelectTamanio").val());
   $("#botonSiguiente").click(imprimeProducto);
 
   function imprimeProducto(){
+  
+
+    $('.primeraVentana').fadeOut('slow', function() {
+      $('.segundaVentana').fadeIn('slow');
+  });
+
     var itemPredefinido = JSON.parse(sessionStorage.getItem("productoPredefinido"));
     var nombrePrueba = itemPredefinido.nombre;
     var tamanioPredefinido = itemPredefinido.tamanio;
@@ -180,11 +186,16 @@ console.log($("#SelectTamanio").val());
   }
 
   
-  $("#botonAtrasSegunda").click(imprimePrueba);
+  $("#botonAtrasSegunda").click(atrasPrimera);
 
-  function imprimePrueba(){
-    $('#pedidoConcretado img').remove();
-    $('#pedidoConcretado p').remove();
+  function atrasPrimera(){
+    $('.segundaVentana').fadeOut('slow', function() {
+      $('.primeraVentana').fadeIn('slow');
+      $('#pedidoConcretado img').remove();
+      $('#pedidoConcretado p').remove();
+  });
+
+  
     $("#tamanioRealizado").toggle(500);
     $("#SelectTamanio").prop('selectedIndex',0)
   $(botonSiguiente).prop( "disabled", true ).css({
@@ -192,4 +203,13 @@ console.log($("#SelectTamanio").val());
  });
     $('.productoRealizado').prop( "checked", false );;
 
+  }
+
+
+  $("#botonSiguienteSegunda").click(imprimeForm);
+  
+  function imprimeForm () {
+    $('.segundaVentana').fadeOut('slow', function() {
+      $('.terceraVentana').fadeIn('slow');
+  });
   }

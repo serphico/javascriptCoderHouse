@@ -6,6 +6,8 @@
 
 @import "_terceraVentana";
 
+@import "_ventanaMensaje";
+
 $tipografiaPrincipal: "Roboto", sans-serif;
 
 * {
@@ -74,7 +76,7 @@ main {
           }
 
           .productoRealizado:checked ~ img {
-            border: solid 10px yellow;
+            border: solid 10px cyan;
             //visibility: hidden;
           }
         }

@@ -87,6 +87,21 @@
   color: white;
 }
 
+.terceraVentana h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 2.5rem;
+  padding: 0% 0% 2% 0%;
+}
+
+.terceraVentana p {
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
 .terceraVentana form #DatosComprador .contenedorInputs {
   display: flex;
   flex-direction: column;
@@ -100,7 +115,7 @@
   padding: 2% 0% 2% 0%;
   font-size: 1.2rem;
   font-weight: 700;
-  color: dodgerblue;
+  color: #00ccff;
 }
 
 .terceraVentana form #DatosComprador .contenedorInputs input {
@@ -141,12 +156,12 @@
 
 .terceraVentana form #DatosComprador .contenedorInputs select:focus,
 .terceraVentana form #DatosComprador .contenedorInputs select.form-control:focus {
+  background: firebrick;
   outline: none !important;
   outline-width: 0 !important;
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  background: transparent;
 }
 
 .terceraVentana form #DatosComprador .contenedorInputs #Provincias {
@@ -173,9 +188,29 @@
 .terceraVentana #botonFinalizar {
   width: 30%;
   margin: 8% 0% 0% 0% !important;
-  background-color: grey !important;
-  color: white !important;
   font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 auto;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 2% 2% 2% 2%;
+  cursor: pointer;
+}
+
+.parrafoFinalizado {
+  width: 70vw;
+  font-size: 2rem;
+  margin: 0 auto;
+  font-weight: 700;
+  margin-bottom: 10%;
+}
+
+.BotonVolverInicio {
+  width: 40%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
   font-weight: 700;
   margin: 0 auto;
   background-color: white;
@@ -257,7 +292,7 @@ main .primeraVentana form .contenedoProductoRealizado div .productoRealizado {
 }
 
 main .primeraVentana form .contenedoProductoRealizado div .productoRealizado:checked ~ img {
-  border: solid 10px yellow;
+  border: solid 10px cyan;
 }
 
 main .primeraVentana form #tamanioRealizado {

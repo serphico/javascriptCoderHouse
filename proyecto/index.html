@@ -135,12 +135,13 @@
 
       <section class="terceraVentana">
         <h1>Datos de envio</h1>
-        Por favor rellene con sus datos para realizar el envio del producto una vez finalizado:
+        <p>Por favor rellene con sus datos para realizar el envio del producto una vez finalizado:</p>
         
         <form action="">
         <div id="DatosComprador">
           <div class="contenedorInputs">
             <label for="name">Nombre</label>
+            
             <input type="text" name="name" id="name">
           </div>
           <div class="contenedorInputs">
@@ -159,8 +160,9 @@
           
           <div class="contenedorInputs">
             <label for="Provincias">¿De que provincia sos?</label>
+            <span class="error"></span>
             <select name="Provincias" id="Provincias">
-              
+              <option value="#">Elige una provincia</option>
             </select>
           </div>
 
@@ -185,6 +187,9 @@
           <input type="submit" id="botonFinalizar" class="" value="Finalizar" />
         </div>
       </form>
+
+      </section>
+      <section id="mensajeFinal">
 
       </section>
     </main>

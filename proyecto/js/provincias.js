@@ -11,7 +11,7 @@ $.ajax({
 
         var idProvincias = provincias.provincias[i].id;
         options.prop('id',idProvincias);
-        options.prop('value',idProvincias);
+        options.prop('value',nombreProvincias);
 
         $('#Provincias').append(options);
 

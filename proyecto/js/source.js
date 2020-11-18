@@ -213,3 +213,157 @@ console.log($("#SelectTamanio").val());
       $('.terceraVentana').fadeIn('slow');
   });
   }
+
+
+
+
+  $("#botonFinalizar").click(enviarForm);
+  
+  function enviarForm(e) {
+    e.preventDefault();
+    var nombre = $('#name').val();
+    var apellido = $('#lastName').val();
+    var email = $('#email').val();
+    var nContacto = $('#tel').val();
+    var provinciaUsusario = $('#Provincias').val();
+    var municipioUsusario = $('#municipios').val();
+    var codigoPostal = $('#CP').val();
+
+    console.log(nombre, apellido, email, nContacto, provinciaUsusario, municipioUsusario, codigoPostal);
+    if(nombre == 0 | nombre == null | nombre == "") {
+      $('#name').css({
+        'border-color':'orange',
+        'background-color':'orange'
+      })
+
+      $('#name').prop('placeholder', 'Ingrese su nombre.');
+    }
+
+    if(apellido == 0 | apellido == null | apellido == "") {
+      $('#lastName').css({
+        'border-color':'orange',
+        'background-color':'orange'
+      })
+
+      $('#lastName').prop('placeholder', 'Ingrese su apellido.');
+    }
+    
+    if(email == 0 | email == null | email == "") {
+      $('#email').css({
+        'border-color':'orange',
+        'background-color':'orange'
+      })
+
+      $('#email').prop('placeholder', 'Ingrese su email.');
+    }
+
+    if(nContacto == 0 | nContacto == null | nContacto == "") {
+      $('#tel').css({
+        'border-color':'orange',
+        'background-color':'orange'
+      })
+
+      $('#tel').prop('placeholder', 'Ingrese su número de contacto.');
+    }
+
+    if(provinciaUsusario == '#') {
+      $('#Provincias').css({
+        'border-color':'orange',
+        'background-color':'orange'
+      })
+
+      $('.error').append('Ingrese su provincia.');
+      $('.error').css({
+        'color':'orange',
+        'font-size':'1.2rem'
+      
+      });
+    }
+
+    if(codigoPostal == 0 | codigoPostal == null | codigoPostal == "") {
+      $('#CP').css({
+        'border-color':'orange',
+        'background-color':'orange'
+      })
+
+      $('#CP').prop('placeholder', 'Ingrese su número de contacto.');
+    }
+    
+    if(nombre.length > 0 && apellido.length > 0 && email.length > 0 && nContacto.length > 0 && provinciaUsusario.length > 0 && codigoPostal.length > 0){
+      
+      $('#mensajeFinal').css({
+        'width': '100vw',
+        'height':'100vh',
+        'display': 'flex',
+        'flex-direction': 'column',
+        'flex-wrap': 'wrap',
+        'justify-content': 'center',
+        'text-align': 'center',
+        'margin': '0 auto',
+        'background-color': 'firebrick',
+        'border-radius': '15px',
+        'padding': '5% 0% 5% 0%',
+        'color': 'white'
+      });
+
+      var textoConfirmado = $('<p></p>').text('¡Su pedido ha sido confirmado, se lo enviaremos en 10 días habiles!');
+
+      textoConfirmado.prop('class','parrafoFinalizado');
+
+      var BotonResetear = $('<a href = "index.html"></a>').text('Volver al inicio');
+
+      BotonResetear.prop('class','BotonVolverInicio');
+
+      $('#mensajeFinal').append(textoConfirmado, BotonResetear);
+      
+    }
+  }
+
+  $('#name').keydown(ocultarErrorName);
+  function ocultarErrorName (){
+    $('#name').css({
+      'border-color':'white',
+      'background':'none'
+    })
+  }
+
+  $('#lastName').keydown(ocultarErrorLastName);
+  function ocultarErrorLastName (){
+    $('#lastName').css({
+      'border-color':'white',
+      'background':'none'
+    })
+  }
+
+  $('#email').keydown(ocultarErrorEmail);
+  function ocultarErrorEmail (){
+    $('#email').css({
+      'border-color':'white',
+      'background':'none'
+    })
+  }
+
+  $('#tel').keydown(ocultarErrorTel);
+  function ocultarErrorTel (){
+    $('#tel').css({
+      'border-color':'white',
+      'background':'none'
+    })
+  }
+
+  $('#Provincias').change(ocultarErrorProvincia);
+  function ocultarErrorProvincia (){
+    $('#Provincias').css({
+      'border-color':'white',
+      'background':'none'
+    })
+    $('.error').remove()
+  }
+
+  $('#CP').keydown(ocultarErrorCp);
+  function ocultarErrorCp (){
+    $('#CP').css({
+      'border-color':'white',
+      'background':'none'
+    })
+  }

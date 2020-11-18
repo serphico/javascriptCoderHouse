@@ -1,0 +1,17 @@
+@import "_mixin";
+
+.parrafoFinalizado {
+  width: 70vw;
+  font-size: 2rem;
+  margin: 0 auto;
+  font-weight: 700;
+  margin-bottom: 10%;
+}
+
+.BotonVolverInicio {
+  width: 40%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
+  @include botones;
+}
